@@ -15,9 +15,7 @@ class CreateManualsTable extends Migration
     public function up()
     {
         Schema::create('manuals', function (Blueprint $table) {
-//             $table->id();
-            $table->uuid('id')->primary();
-
+            $table->id();
             $table->string('title');
             $table->longText('content')->nullable();
             $table->string('slug')->nullable();

@@ -30,16 +30,36 @@ Route::view('/riordina-statico', 'manuals.reorder-static')->name('manuals.reorde
 
 
 Route::get('/prova', function () {
-    \App\Models\Manual::make([
-        'title'   => "aaa",
-    ])->makeRoot()->save();
-//     ])->appendTo(1)->save();
+    $first = \App\Models\Manual::make([
+        'title'   => "non ha figli",
+    ]);
+    $first->makeRoot()->save();
+
+    $first = \App\Models\Manual::make([
+        'title'   => "padre AAA",
+    ]);
+    $first->makeRoot()->save();
+
+
+    $second = \App\Models\Manual::make([
+        'title'   => "figlio di AAA",
+     ]);
+    $second->prependTo($first)->save();
+
+    $third = \App\Models\Manual::make([
+        'title'   => "altro figlio di AAA",
+     ])->prependTo($first)->save();
+
+    $fourth = \App\Models\Manual::make([
+        'title'   => "figlio di figlio di AAA",
+    ])->prependTo($second)->save();
+
 });
 
 
 Route::get('/', function () {
     $manuals = \App\Models\Manual::all();
-    return view('manuals.index', compact('manuals'));
+    return view('manuals.indextree', compact('manuals'));
 });
 
 

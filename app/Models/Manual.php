@@ -14,7 +14,7 @@ class Manual extends Model implements TreeConfigurable
     protected $guarded = [];
 
 
-    protected $keyType = 'uuid';
+    protected $keyType = 'integer';
 
     protected static function buildTreeConfig(): Base
     {

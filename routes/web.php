@@ -29,6 +29,14 @@ Route::view('/riordina', 'manuals.reorder')->name('manuals.reorder');
 Route::view('/riordina-statico', 'manuals.reorder-static')->name('manuals.reorder-static');
 
 
+Route::get('/prova', function () {
+    \App\Models\Manual::make([
+        'title'   => "aaa",
+    ])->makeRoot()->save();
+//     ])->appendTo(1)->save();
+});
+
+
 Route::get('/', function () {
     $manuals = \App\Models\Manual::all();
     return view('manuals.index', compact('manuals'));

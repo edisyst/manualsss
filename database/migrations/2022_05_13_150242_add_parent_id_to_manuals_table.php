@@ -1,0 +1,38 @@
+<?php
+
+use Fureev\Trees\Migrate;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class AddParentIdToManualsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('manuals', function (Blueprint $table) {
+//             $table->uuid('id')->primary();
+//             $table->string('manuals');
+
+            Migrate::columns($table, (new App\Models\Manual)->getTreeConfig());
+
+//             $table->integer('tree_id');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('manuals', function (Blueprint $table) {
+            //
+        });
+    }
+}

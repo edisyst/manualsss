@@ -19,3 +19,11 @@ php artisan make:livewire Manuals
 php artisan migrate
 ```
 Aggiungo al menu la pagina Manuals e creo la view admin.manuals.blade
+
+
+https://github.com/efureev/laravel-trees#moving-nodes
+
+https://laravel-livewire.com/screencasts/s8-dragging-list
+
+https://therealprogrammer.com/laravel-unlimited-hierarchical-category-tree-view/
+

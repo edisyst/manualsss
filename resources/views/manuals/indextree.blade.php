@@ -7,6 +7,9 @@
 
 
 @section('stylesheets')
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/compiled-4.20.0.min.css">
 @stop
 
 
@@ -24,44 +27,100 @@
         </div>
         <div class="card-body">
 
-            <div class="col-sm-4">
-                <h2>Default</h2>
-                <div id="treeview1" class="treeview">
-                    <ul class="list-group">
-                        <li class="list-group-item node-treeview1" data-nodeid="0"
-                            style="color:undefined;background-color:undefined;"><span
-                                class="icon expand-icon glyphicon glyphicon-minus"></span><span
-                                class="icon node-icon"></span>Parent 1
-                        </li>
-                        <li class="list-group-item node-treeview1" data-nodeid="1"
-                            style="color:undefined;background-color:undefined;"><span class="indent"></span><span
-                                class="icon expand-icon glyphicon glyphicon-plus"></span><span
-                                class="icon node-icon"></span>Child 1
-                        </li>
-                        <li class="list-group-item node-treeview1" data-nodeid="4"
-                            style="color:undefined;background-color:undefined;"><span class="indent"></span><span
-                                class="icon glyphicon"></span><span class="icon node-icon"></span>Child 2
-                        </li>
-                        <li class="list-group-item node-treeview1" data-nodeid="5"
-                            style="color:undefined;background-color:undefined;"><span
-                                class="icon glyphicon"></span><span class="icon node-icon"></span>Parent 2
-                        </li>
-                        <li class="list-group-item node-treeview1" data-nodeid="6"
-                            style="color:undefined;background-color:undefined;"><span
-                                class="icon glyphicon"></span><span class="icon node-icon"></span>Parent 3
-                        </li>
-                        <li class="list-group-item node-treeview1" data-nodeid="7"
-                            style="color:undefined;background-color:undefined;"><span
-                                class="icon glyphicon"></span><span class="icon node-icon"></span>Parent 4
-                        </li>
-                        <li class="list-group-item node-treeview1" data-nodeid="8"
-                            style="color:undefined;background-color:undefined;"><span
-                                class="icon glyphicon"></span><span class="icon node-icon"></span>Parent 5
-                        </li>
-                    </ul>
-                </div>
+            <div class="treeview-colorful w-20 border border-secondary mx-4 my-4">
+                <h6 class="pt-3 pl-3">Folders</h6>
+                <hr>
+                <ul class="treeview-colorful-list mb-3">
+                    <li class="treeview-colorful-items">
+                        <a class="treeview-colorful-items-header">
+                            <i class="fas fa-plus-circle"></i>
+                            <span><i class="far fa-envelope-open ic-w mx-1"></i>Mail</span>
+                        </a>
+                        <ul class="nested">
+                            <li>
+                                <div class="treeview-colorful-element"><i class="far fa-bell ic-w mr-1"></i>Offers
+                            </li>
+                            <li>
+                                <div class="treeview-colorful-element"><i class="far fa-address-book ic-w mr-1"></i>Contacts
+                            </li>
+                            <li class="treeview-colorful-items">
+                                <a class="treeview-colorful-items-header">
+                                    <i class="fas fa-plus-circle"></i>
+                                    <span><i class="far fa-calendar-alt ic-w mx-1"></i>Calendar</span></a>
+                                <ul class="nested">
+                                    <li>
+                                        <div class="treeview-colorful-element"><i class="far fa-clock ic-w mr-1"></i>Deadlines
+                                    </li>
+                                    <li>
+                                        <div class="treeview-colorful-element"><i class="fas fa-users ic-w mr-1"></i>Meetings
+                                    </li>
+                                    <li>
+                                        <div class="treeview-colorful-element"><i class="fas fa-basketball-ball ic-w mr-1"></i>Workouts
+                                    </li>
+                                    <li>
+                                        <div class="treeview-colorful-element"><i class="fas fa-mug-hot ic-w mr-1"></i>Events
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="treeview-colorful-items">
+                        <a class="treeview-colorful-items-header">
+                            <i class="fas fa-plus-circle"></i>
+                            <span><i class="far fa-folder-open ic-w mx-1"></i>Inbox</span>
+                        </a>
+                        <ul class="nested">
+                            <li>
+                                <div class="treeview-colorful-element"><i class="far fa-folder-open ic-w mr-1"></i>Admin
+                            </li>
+                            <li>
+                                <div class="treeview-colorful-element"><i class="far fa-folder-open ic-w mr-1"></i>Corporate
+                            </li>
+                            <li>
+                                <div class="treeview-colorful-element"><i class="far fa-folder-open ic-w mr-1"></i>Finance
+                            </li>
+                            <li>
+                                <div class="treeview-colorful-element"><i class="far fa-folder-open ic-w mr-1"></i>Other
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="treeview-colorful-items">
+                        <a class="treeview-colorful-items-header">
+                            <i class="fas fa-plus-circle"></i>
+                            <span><i class="far fa-gem mx-1"></i>Favourites</span>
+                        </a>
+                        <ul class="nested">
+                            <li>
+                                <div class="treeview-colorful-element"><i class="fas fa-pepper-hot ic-w mr-1"></i>Restaurants
+                            </li>
+                            <li>
+                                <div class="treeview-colorful-element"><i class="far fa-eye ic-w mr-1"></i>Places
+                            </li>
+                            <li>
+                                <div class="treeview-colorful-element"><i class="fas fa-gamepad ic-w mr-1"></i>Games
+                            </li>
+                            <li>
+                                <div class="treeview-colorful-element"><i class="fas fa-cocktail ic-w mr-1"></i>Coctails
+                            </li>
+                            <li>
+                                <div class="treeview-colorful-element"><i class="fas fa-pizza-slice ic-w mr-1"></i>Food
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="treeview-colorful-element"><i class="far fa-comment ic-w mr-1"></i>Notes
+                    </li>
+                    <li>
+                        <div class="treeview-colorful-element"><i class="fas fa-cogs ic-w mr-1"></i>Settings
+                    </li>
+                    <li>
+                        <div class="treeview-colorful-element"><i class="fas fa-desktop ic-w mr-1"></i>Devices
+                    </li>
+                    <li>
+                        <div class="treeview-colorful-element"><i class="fas fa-trash-alt ic-w mr-1"></i>Deleted Items
+                    </li>
+                </ul>
             </div>
-
 
             {{--            <div class="table-responsive">--}}
             {{--                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">--}}
@@ -149,5 +208,19 @@
 
 
 @section('scripts')
-    {{--NIENTE PER ORA--}}
+{{--    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>--}}
+    <script type="text/javascript" src="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/js/bundles/4.20.0/compiled.min.js"></script>
+    <script type="text/javascript" src="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/js/dist/search-v4/search.min.js"></script>
+    <script src="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/js/dist/main.min.js"></script>
+
+    <script>
+        // Treeview Initialization
+        $(document).ready(function() {
+            // $('.treeview-animated').mdbTreeview();
+            $('.treeview-colorful').mdbTreeview();
+            // $('.treeview-animated').mdbTreeview();
+            // $('.treeview').mdbTreeview();
+        });
+    </script>
+
 @endsection

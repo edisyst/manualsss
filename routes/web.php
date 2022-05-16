@@ -58,7 +58,7 @@ Route::get('/prova', function () {
 
 
 Route::get('/', function () {
-    $manuals = \App\Models\Manual::all();
+    $manuals = \App\Models\Manual::where('parent_id', null)->get();
     return view('manuals.indextree', compact('manuals'));
 });
 

@@ -16,6 +16,11 @@ class Manual extends Model implements TreeConfigurable
 
     protected $keyType = 'integer';
 
+    public function childs()
+    {
+        return $this->hasMany(self::class, 'parent_id', 'id');
+    }
+
     protected static function buildTreeConfig(): Base
     {
 

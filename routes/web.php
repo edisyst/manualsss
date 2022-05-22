@@ -31,28 +31,43 @@ Route::view('/riordina-statico', 'manuals.reorder-static')->name('manuals.reorde
 
 Route::get('/prova', function () {
     $first = \App\Models\Manual::make([
-        'title'   => "non ha figli",
+        'title'   => "NONNO",
     ]);
     $first->makeRoot()->save();
-
-    $first = \App\Models\Manual::make([
-        'title'   => "padre AAA",
-    ]);
-    $first->makeRoot()->save();
-
 
     $second = \App\Models\Manual::make([
-        'title'   => "figlio di AAA",
+        'title'   => "PADRE",
      ]);
     $second->prependTo($first)->save();
 
     $third = \App\Models\Manual::make([
-        'title'   => "altro figlio di AAA",
-     ])->prependTo($first)->save();
+        'title'   => "ZIO",
+     ]);
+    $third->prependTo($first)->save();
 
     $fourth = \App\Models\Manual::make([
-        'title'   => "figlio di figlio di AAA",
-    ])->prependTo($second)->save();
+        'title'   => "FIGLIO",
+    ]);
+    $fourth->prependTo($second)->save();
+
+    $five = \App\Models\Manual::make([
+        'title'   => "NIPOTE",
+    ]);
+    $five->prependTo($fourth)->save();
+
+//    $five = \App\Models\Manual::make([
+//        'title'   => "dopo EDOARDO",
+//    ])->prependTo($fourth)->save();
+
+//    $six = \App\Models\Manual::make([
+//        'title'   => "dopo dopo EDOARDO",
+//    ])->prependTo($five)->save();
+
+
+    $first = \App\Models\Manual::make([
+        'title'   => "NONNO secondo",
+    ]);
+    $first->makeRoot()->save();
 
 });
 

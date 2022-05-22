@@ -27,45 +27,25 @@
         </div>
         <div class="card-body">
 
+
+
+
+
             <div class="treeview-colorful w-20 border border-secondary mx-4 my-4">
                 <h6 class="pt-3 pl-3">Manuals Tree</h6>
                 <hr>
                 @foreach($manuals as $item)
                     <ul class="treeview-colorful-list mb-3">
+{{--                    @if(count($child->childs))--}}
                         @if($item->children->count() === 0)
                             <li>
-                                <div class="treeview-colorful-element"><i class="far fa-bell ic-w mr-1"></i>{{ $item->title }}
+                                <span class="treeview-colorful-element">
+                                    <i class="far fa-bell ic-w mr-1"></i>
+                                    {{ $item->title }} aaa
+                                </span>
                             </li>
                         @else
-                            <li class="treeview-colorful-items">
-                                <a class="treeview-colorful-items-header">
-                                    <i class="fas fa-plus-circle"></i>
-                                    <span><i class="far fa-envelope-open ic-w mx-1"></i>{{ $item->title }}</span>
-                                </a>
-                                <ul class="nested">
-                                    @foreach($item->children as $child)
-                                        @if($child->children->count() === 0)
-                                            <li>
-                                                <div class="treeview-colorful-element"><i class="far fa-bell ic-w mr-1"></i>{{ $child->title }}
-                                            </li>
-                                        @else
-                                            <li class="treeview-colorful-items">
-                                                <a class="treeview-colorful-items-header">
-                                                    <i class="fas fa-plus-circle"></i>
-                                                    <span><i class="far fa-calendar-alt ic-w mx-1"></i>{{ $child->title }}</span>
-                                                </a>
-                                                <ul class="nested">
-                                                    @foreach($child->children as $child)
-                                                        <li>
-                                                            <div class="treeview-colorful-element"><i class="far fa-clock ic-w mr-1"></i>{{ $child->title }}
-                                                        </li>
-                                                    @endforeach
-                                                </ul>
-                                            </li>
-                                        @endif
-                                    @endforeach
-                                </ul>
-                            </li>
+                            @include('manuals.partials.children',['children' => $item->children])
                         @endif
                     </ul>
                 @endforeach

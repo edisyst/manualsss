@@ -36,25 +36,23 @@
                 <hr>
                 <ul class="treeview-colorful-list mb-3">
                     @foreach($manuals as $item)
+                        <li class="treeview-colorful-items">
                         @if($item->children->count() === 0)
-                            <li class="treeview-colorful-items">
-                                <span class="treeview-colorful-element">
-                                    <i class="far fa-bell ic-w mr-1"></i>
-                                    {{ $item->title }} aaa
-                                </span>
-                            </li>
+                            <span class="treeview-colorful-element">
+                                <i class="far fa-address-book ic-w mr-1"></i>
+                                {{ $item->title }} AA00
+                            </span>
                         @else
-                            <li class="treeview-colorful-items">
-                                <a class="treeview-colorful-items-header">
-                                    <i class="fas fa-plus-circle"></i>
-                                    <span>
-                                        <i class="far fa-envelope-open ic-w mx-1"></i>
-                                        {{ $item->title }} aaa
-                                    </span>
-                                </a>
-                                @include('manuals.partials.children',['children' => $item->children])
-                            </li>
+                            <a class="treeview-colorful-items-header">
+                                <i class="fas fa-plus-circle"></i>
+                                <span>
+                                    <i class="far fa-folder-open ic-w mx-1"></i>
+                                    {{ $item->title }} AA11
+                                </span>
+                            </a>
+                            @include('manuals.partials.children',['children' => $item->children])
                         @endif
+                        </li>
                     @endforeach
                 </ul>
             </div>

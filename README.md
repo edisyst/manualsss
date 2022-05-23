@@ -25,5 +25,4 @@ https://github.com/efureev/laravel-trees#moving-nodes
 
 https://laravel-livewire.com/screencasts/s8-dragging-list
 
-https://therealprogrammer.com/laravel-unlimited-hierarchical-category-tree-view/
 

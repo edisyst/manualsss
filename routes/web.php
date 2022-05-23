@@ -39,11 +39,15 @@ Route::get('/prova', function () {
         'title'   => "PADRE",
      ]);
     $second->prependTo($first)->save();
-
     $third = \App\Models\Manual::make([
         'title'   => "ZIO",
      ]);
     $third->prependTo($first)->save();
+
+    $fourth = \App\Models\Manual::make([
+        'title'   => "CUGINO",
+    ]);
+    $fourth->prependTo($third)->save();
 
     $fourth = \App\Models\Manual::make([
         'title'   => "FIGLIO",
@@ -55,13 +59,15 @@ Route::get('/prova', function () {
     ]);
     $five->prependTo($fourth)->save();
 
-//    $five = \App\Models\Manual::make([
-//        'title'   => "dopo EDOARDO",
-//    ])->prependTo($fourth)->save();
+    $six = \App\Models\Manual::make([
+        'title'   => "dopo EDOARDO",
+    ]);
+    $six->prependTo($five)->save();
 
-//    $six = \App\Models\Manual::make([
-//        'title'   => "dopo dopo EDOARDO",
-//    ])->prependTo($five)->save();
+    $seven = \App\Models\Manual::make([
+        'title'   => "dopo dopo EDOARDO",
+    ]);
+    $seven->prependTo($six)->save();
 
 
     $first = \App\Models\Manual::make([

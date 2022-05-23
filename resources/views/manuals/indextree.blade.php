@@ -34,21 +34,29 @@
             <div class="treeview-colorful w-20 border border-secondary mx-4 my-4">
                 <h6 class="pt-3 pl-3">Manuals Tree</h6>
                 <hr>
-                @foreach($manuals as $item)
-                    <ul class="treeview-colorful-list mb-3">
-{{--                    @if(count($child->childs))--}}
+                <ul class="treeview-colorful-list mb-3">
+                    @foreach($manuals as $item)
                         @if($item->children->count() === 0)
-                            <li>
+                            <li class="treeview-colorful-items">
                                 <span class="treeview-colorful-element">
                                     <i class="far fa-bell ic-w mr-1"></i>
                                     {{ $item->title }} aaa
                                 </span>
                             </li>
                         @else
-                            @include('manuals.partials.children',['children' => $item->children])
+                            <li class="treeview-colorful-items">
+                                <a class="treeview-colorful-items-header">
+                                    <i class="fas fa-plus-circle"></i>
+                                    <span>
+                                        <i class="far fa-envelope-open ic-w mx-1"></i>
+                                        {{ $item->title }} aaa
+                                    </span>
+                                </a>
+                                @include('manuals.partials.children',['children' => $item->children])
+                            </li>
                         @endif
-                    </ul>
-                @endforeach
+                    @endforeach
+                </ul>
             </div>
 
 

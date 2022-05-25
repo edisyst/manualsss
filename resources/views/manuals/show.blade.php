@@ -1,6 +1,12 @@
+@extends('layouts.app-show')
 
-<title>{{$manual->title}}</title>
 
+@section('title')
+    {{ $manual->title }}
+@endsection
+
+
+@section('stylesheets')
 <style>
     body{
         font-family: Tahoma;
@@ -71,9 +77,27 @@
         margin-left: 15px;
     }
 </style>
+@endsection
 
 
-<?php
+@section('sidebar_menu')
+    {{ $manual->content }}
+@endsection
 
-    //QUI DEVO MODIFICARE IL CONTENT, SOSTITUENDO I PLACEHOLDER/CAPITOLI
-echo $manual->content;
+
+@section('content_body')
+    {{ $manual->content }}
+@endsection
+
+
+@section('scripts')
+    <script>
+        // Treeview Initialization
+        $(document).ready(function() {
+            // $('.treeview-animated').mdbTreeview();
+            $('.treeview-colorful').mdbTreeview();
+            // $('.treeview-animated').mdbTreeview();
+            // $('.treeview').mdbTreeview();
+        });
+    </script>
+@endsection

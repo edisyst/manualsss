@@ -29,9 +29,58 @@ Route::view('/riordina', 'manuals.reorder')->name('manuals.reorder');
 Route::view('/riordina-statico', 'manuals.reorder-static')->name('manuals.reorder-static');
 
 
+Route::get('/prova', function () {
+    $first = \App\Models\Manual::make([
+        'title'   => "NONNO",
+    ]);
+    $first->makeRoot()->save();
+
+    $second = \App\Models\Manual::make([
+        'title'   => "PADRE",
+     ]);
+    $second->prependTo($first)->save();
+    $third = \App\Models\Manual::make([
+        'title'   => "ZIO",
+     ]);
+    $third->prependTo($first)->save();
+
+    $fourth = \App\Models\Manual::make([
+        'title'   => "CUGINO",
+    ]);
+    $fourth->prependTo($third)->save();
+
+    $fourth = \App\Models\Manual::make([
+        'title'   => "FIGLIO",
+    ]);
+    $fourth->prependTo($second)->save();
+
+    $five = \App\Models\Manual::make([
+        'title'   => "NIPOTE",
+    ]);
+    $five->prependTo($fourth)->save();
+
+    $six = \App\Models\Manual::make([
+        'title'   => "dopo EDOARDO",
+    ]);
+    $six->prependTo($five)->save();
+
+    $seven = \App\Models\Manual::make([
+        'title'   => "dopo dopo EDOARDO",
+    ]);
+    $seven->prependTo($six)->save();
+
+
+    $first = \App\Models\Manual::make([
+        'title'   => "NONNO secondo",
+    ]);
+    $first->makeRoot()->save();
+
+});
+
+
 Route::get('/', function () {
-    $manuals = \App\Models\Manual::all();
-    return view('manuals.index', compact('manuals'));
+    $manuals = \App\Models\Manual::where('parent_id', null)->get();
+    return view('manuals.indextree', compact('manuals'));
 });
 
 

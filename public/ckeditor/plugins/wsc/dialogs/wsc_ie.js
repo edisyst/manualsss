@@ -32,7 +32,7 @@ CKEDITOR.dialog.add( 'checkspell', function( editor ) {
 
 	var wscCoreUrl = editor.config.wsc_customLoaderScript || ( protocol + '//loader.webspellchecker.net/sproxy_fck/sproxy.php' + '?plugin=fck2'
 		+ '&customerid=' + editor.config.wsc_customerId
-		+ '&cmd=script&doc=wsc&schema=22'
+		+ '&cmd=script&doc=wsc&AAAschema=22'
 	);
 
 	if ( editor.config.wsc_customLoaderScript ) {

@@ -45,7 +45,8 @@ class ManualController extends Controller
 
     public function show(Manual $manual)
     {
-        return view('manuals.show', compact('manual'));
+        $manuals = Manual::where('parent_id', NULL)->get();
+        return view('manuals.show', compact('manual', 'manuals'));
     }
 
 

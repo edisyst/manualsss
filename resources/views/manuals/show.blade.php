@@ -81,12 +81,12 @@
 
 
 @section('sidebar_menu')
-    {{ $manual->content }}
+    @include('manuals.partials.indextree',['manuals' => $manuals])
 @endsection
 
 
 @section('content_body')
-    {{ $manual->content }}
+    {!! $manual->content !!}
 @endsection
 
 

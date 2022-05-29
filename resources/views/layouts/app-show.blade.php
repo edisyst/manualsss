@@ -1,53 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-        <title>
-            @yield('title')
-        </title>
+    <title>@yield('title')</title>
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-        <link rel="stylesheet" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/compiled-4.20.0.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/compiled-4.20.0.min.css">
 
-        @stack('stylesheets')
-    </head>
-    <body>
-        <div class="d-flex" id="wrapper">
-            <!-- Sidebar-->
-            <div class="border-end bg-white w-25" id="sidebar-wrapper">
-                <div class="sidebar-heading border-bottom bg-light">Indice</div>
-                <div class="list-group list-group-flush">
-                    @yield('sidebar_menu')
+    <link href="{{ asset('css/bootstrap.show.styles.css') }}" rel="stylesheet" />
+    @stack('stylesheets')
+</head>
+<body>
+<div class="d-flex" id="wrapper">
 
-                    <!-- Sidebar Toggler (Sidebar) -->
-                    <div class="text-center d-none d-md-inline">
-                        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-                    </div>
-                </div>
+    <!-- Sidebar-->
+    <div class="border-end bg-white" id="sidebar-wrapper">
+        <div class="list-group list-group-flush">
+            <div class="mr-2">
+                @yield('sidebar_menu')
             </div>
-            <!-- Page content wrapper-->
-            <div id="page-content-wrapper">
-                <!-- Top navigation-->
-                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                    <div class="container-fluid">
-                        <h1>@yield('title')</h1>
-                    </div>
-                </nav>
-                <!-- Page content-->
-                <div class="container-fluid">
-                    @yield('content_body')
-                </div>
+        </div>
+    </div>
+
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+
+        <!-- Top navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light border-bottom mb-2" style="background-color: #F9E5F0">
+            <div class="container-fluid">
+                <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
+                <h1>@yield('title')</h1>
             </div>
+        </nav>
+
+        <!-- Page content-->
+        <div class="container-fluid">
+            @yield('content_body')
+        </div>
+    </div>
 
 
-        {{--    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>--}}
-        <script type="text/javascript" src="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/js/bundles/4.20.0/compiled.min.js"></script>
-        <script type="text/javascript" src="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/js/dist/search-v4/search.min.js"></script>
-        <script src="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/js/dist/main.min.js"></script>
-
-        @stack('scripts')
-    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="{{ asset('js/sidebarToggle.js') }}"></script>
+{{--    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>--}}
+@stack('scripts')
+</body>
 </html>

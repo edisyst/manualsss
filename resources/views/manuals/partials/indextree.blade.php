@@ -1,4 +1,9 @@
-<div class="treeview-colorful w-20 border border-secondary mx-4 my-4">
+@push('stylesheets')
+
+@endpush
+
+
+<div class="treeview-colorful border border-secondary">
     <h6 class="pt-3 pl-3">Manuals Tree</h6>
     <hr>
     <ul class="treeview-colorful-list mb-3">
@@ -24,6 +29,9 @@
 
 
 @push('scripts')
+    <script type="text/javascript" src="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/js/bundles/4.20.0/compiled.min.js"></script>
+    <script type="text/javascript" src="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/js/dist/search-v4/search.min.js"></script>
+    <script src="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/js/dist/main.min.js"></script>
     <script>
         // Treeview Initialization
         $(document).ready(function() {

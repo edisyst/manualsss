@@ -26,3 +26,8 @@ https://github.com/efureev/laravel-trees#moving-nodes
 https://laravel-livewire.com/screencasts/s8-dragging-list
 
 
+# Albero dei manuali
+Ho fatto tre componenti in manuals/partials che uso in manuals.show
+- uno viene da sample-lara-menuTreeview
+- uno viene da sample-lara-treeview
+- Dovrei ancora impaginare bene la visualizzazinoe del menu a sinistra dei manuali

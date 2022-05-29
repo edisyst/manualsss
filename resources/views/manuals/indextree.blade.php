@@ -50,7 +50,7 @@
                                     {{ $item->title }}
                                 </span>
                             </a>
-                            @include('manuals.partials.children',['children' => $item->children])
+                            @include('manuals.partials.indextreeChildren',['children' => $item->children])
                         @endif
                         </li>
                     @endforeach

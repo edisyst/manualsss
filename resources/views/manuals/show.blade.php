@@ -6,82 +6,15 @@
 @endsection
 
 
-@section('stylesheets')
-<style>
-    body{
-        font-family: Tahoma;
-        font-size: 14px;
-        padding: 0px 0 12px;
-        background-color: #ffffff;
-        display: block;
-        margin: 20px;
-    }
-    table {
-        max-width: 100%;
-        background-color: transparent;
-        border-collapse: collapse;
-        border-spacing: 0;
-    }
-    div {
-        display: block;
-    }
-    a {
-        color: #428bca;
-        text-decoration: none;
-    }
-    p {
-        margin: 0 0 10px;
-    }
-
-    h4, h5, h6 {
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-    h1, h2, h3, h4, h5, h6 {
-        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-        font-weight: 500;
-        line-height: 1.1;
-    }
-
-    h3 {
-        font-size: 22px;
-        color: #CD3300;
-        font-weight: 700;
-        text-align: right;
-        border-bottom: 4px solid #365F91;
-        padding-top: 10px;
-        padding-bottom: 5px;
-    }
-
-    h4 {
-        font-size: 16px;
-        color: #CD3300;
-        font-weight: 700;
-        border-bottom: 2px solid #365F91;
-        padding-left: 2%;
-        padding-bottom: 2px;
-    }
-
-    h5, h5 a {
-        font-size: 19px;
-        color: #CD3300;
-        font-weight: 700;
-        padding-top: 5px;
-    }
-
-     h6, h6 a {
-        font-size: 16px;
-        color: #333333;
-        font-style: italic;
-        font-weight: 700;
-        margin-left: 15px;
-    }
-</style>
-@endsection
+@push('stylesheets')
+    <link rel="stylesheet" href="{{ asset('css/manuals.show.style.css') }}">
+@endpush
 
 
 @section('sidebar_menu')
     @include('manuals.partials.indextree',['manuals' => $manuals])
+{{--    @include('manuals.partials.treesimple',['manuals' => $manuals])--}}
+{{--    @include('manuals.partials.menuTreeview',['manuals' => $manuals])--}}
 @endsection
 
 
@@ -90,7 +23,7 @@
 @endsection
 
 
-@section('scripts')
+@push('scripts')
     <script>
         // Treeview Initialization
         $(document).ready(function() {
@@ -100,4 +33,4 @@
             // $('.treeview').mdbTreeview();
         });
     </script>
-@endsection
+@endpush

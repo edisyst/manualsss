@@ -31,3 +31,9 @@ Ho fatto tre componenti in manuals/partials che uso in manuals.show
 - uno viene da sample-lara-menuTreeview
 - uno viene da sample-lara-treeview
 - Dovrei ancora impaginare bene la visualizzazinoe del menu a sinistra dei manuali
+
+
+# Popolare il DB 
+https://github.com/orangehill/iseed
+- `composer require orangehill/iseed`
+- `php artisan iseed my_table,another_table`

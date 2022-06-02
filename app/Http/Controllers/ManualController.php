@@ -12,13 +12,16 @@ class ManualController extends Controller
     public function index()
     {
         $manuals = Manual::all();
+
         return view('manuals.index', compact('manuals'));
     }
 
 
     public function create()
     {
-        return view('manuals.create');
+        $manuals = Manual::all();
+
+        return view('manuals.create', compact('manuals'));
     }
 
 
@@ -35,10 +38,18 @@ class ManualController extends Controller
             'title'   => $request->title,
             'content' => $request->content,
             'slug'    => $slug,
-            'path'    => 'http://127.0.0.1:8000/manuals/'.$slug,
+            'path'    => 'http://127.0.0.1:8000/manuals/'.$slug, // in futuro sarà così, per ora stò usando l'ID
             'tags'    => $request->tags,
         ]);
 
+        if (!$request->parent_id){
+            $manual->makeRoot()->save();
+        } else {
+            $parent = Manual::find($request->parent_id);
+            $manual->prependTo($parent)->save();
+        }
+
+        // lo faccio apposta per salvare una seconda volta e "correggere" il path con route(manuals.show)
         return view('manuals.edit', ["manual" => $manual]);
     }
 
@@ -46,6 +57,7 @@ class ManualController extends Controller
     public function show(Manual $manual)
     {
         $manuals = Manual::where('parent_id', NULL)->get();
+
         return view('manuals.show', compact('manual', 'manuals'));
     }
 
@@ -77,20 +89,51 @@ class ManualController extends Controller
 
     public function destroy(Manual $manual)
     {
-        $manual->delete();
+//        $manual->delete();  // prima eliminavo solo un elemento, ora anche i figli
+        $manual->deleteWithChildren();
+
         return redirect()->route('manuals.index');
     }
 
 
+    //E' L'UNICO METODO CHE NON RIESCO A GESTIRE CON I TREE - FORSE DEVO CREARE UN METODO append()
+    //FORSE DEVO CREARE UN QUALCOSA DI RICORSIVO
     public function duplicate(Manual $manual)
     {
-        Manual::create([
+//        echo '<div>' . $manual->title . '</div>';
+//
+//        if ($manual->children()->get()->count() > 0){
+//            foreach($manual->descendants as $child)
+////                self::duplicate($child);
+//                echo '<div>' . $child->title . '</div>';
+//        } else {
+//            dd('no figli');
+//        }
+
+
+        $newManual = Manual::create([
             'title'   => $manual->title.'-dup',
             'content' => $manual->content,
             'slug'    => $manual->slug.'-dup',
             'path'    => $manual->path.'-dup',
             'tags'    => $manual->tags,
         ]);
+
+        if (!$manual->parent_id){
+            $newManual->makeRoot()->save();
+        } else {
+            $parent = Manual::find($manual->parent_id);
+            $newManual->prependTo($parent)->save();
+
+            if ($manual->children()->get()->count() > 0){ // >1 perchè ho appena creato il duplicato ??? forse è >0
+                foreach ($manual->children as $child)
+                    dd($manual->children()->get());
+//                    return $this->duplicate($child);
+            } else {
+                dd('no figli');
+            }
+        }
+
         return redirect()->back();
     }
 

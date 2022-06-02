@@ -34,6 +34,15 @@
                     <input type="text" class="form-control" name="tags">
                 </div>
                 <div class="form-group">
+                    <label for="parent_id">Ramo padre - parent_id</label>
+                    <select class="form-control" name="parent_id">
+                        <option value="" selected>---</option>
+                        @foreach($manuals as $manual)
+                            <option value="{{ $manual->id }}">{{ $manual->title }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="content">Content</label>
                     <textarea class="form-control" name="content" id="content_editor" rows="10"></textarea>
                 </div>

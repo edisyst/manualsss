@@ -38,7 +38,7 @@
                         <input type="text" class="form-control" name="slug" value="{{$manual->slug}}" disabled>
                     </div>
                     <div class="form-group">
-                        <label for="path">Path (al primo SAVE contiene l'ID e al secondo contiene lo SLUG)</label>
+                        <label for="path">Path (al primo SAVE contiene lo SLUG ma dal secondo conterrà l'ID)</label>
                         <input type="text" class="form-control" name="path" value="{{$manual->path}}" disabled>
                     </div>
                     <div class="form-group">

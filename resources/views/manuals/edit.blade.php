@@ -46,13 +46,13 @@
                         <input type="text" class="form-control" name="tags" value="{{$manual->tags}}">
                     </div>
                     <div class="form-group">
-                        <label for="parent_id">Ramo padre (parent_id)</label>
+                        <label for="parent_id">Ramo padre (parent_id) - NON POSSO CREARE UNA ROOT PER ORA - NON POSSO SPOSTARE UN RAMO DENTRO UN PROPRIO FIGLIO</label>
                         <select class="form-control" name="parent_id">
-                            <option value="" selected>--NESSUNO--</option>
                             @foreach($manuals as $item)
                                 <option value="{{ $item->id }}"
-                                    {{ ($manual->parent_id == $item->id) ? 'selected' : '' }}
-                                    {{ ($manual->id == $item->id) ? 'disabled' : '' }}
+                                    {{ ($item->id == $manual->parent_id) ? 'selected' : '' }}
+                                    {{ ($item->id == $manual->id) ? 'disabled' : '' }}
+                                    {{ ($item->isChildOf($manual)) ? 'disabled' : '' }}
                                 >
                                     @for($i=0; $i<$item->lvl; $i++)
                                         <span>-</span>

@@ -89,6 +89,13 @@ class ManualController extends Controller
             'tags'    => $request->tags,
         ]);
 
+        if (!$request->parent_id){
+            $manual->makeRoot()->save();
+        } else {
+            $parent = Manual::find($request->parent_id);
+            $manual->appendTo($parent)->save();
+        }
+
         return redirect()->back();
     }
 

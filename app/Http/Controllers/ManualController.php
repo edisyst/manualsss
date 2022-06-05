@@ -19,7 +19,9 @@ class ManualController extends Controller
 
     public function create()
     {
-        $manuals = Manual::all();
+        $manuals = Manual::orderBy('tree_id')
+            ->orderBy('parent_id')
+            ->get(); // forse non serve aggiungere un campo "ordine/position"
 
         return view('manuals.create', compact('manuals'));
     }
@@ -46,7 +48,7 @@ class ManualController extends Controller
             $manual->makeRoot()->save();
         } else {
             $parent = Manual::find($request->parent_id);
-            $manual->prependTo($parent)->save();
+            $manual->appendTo($parent)->save();
         }
 
         // lo faccio apposta per salvare una seconda volta e "correggere" il path con route(manuals.show)
@@ -64,7 +66,11 @@ class ManualController extends Controller
 
     public function edit(Manual $manual)
     {
-        return view('manuals.edit', compact('manual'));
+        $manuals = Manual::orderBy('tree_id')
+            ->orderBy('parent_id')
+            ->get(); // forse non serve aggiungere un campo "ordine/position"
+
+        return view('manuals.edit', compact('manual', 'manuals'));
     }
 
 
@@ -122,16 +128,21 @@ class ManualController extends Controller
         if (!$manual->parent_id){
             $newManual->makeRoot()->save();
         } else {
-            $parent = Manual::find($manual->parent_id);
-            $newManual->prependTo($parent)->save();
+            $newManual->insertBefore($manual)->save();
 
+// PER ORA NON SONO IN GRADO DI DUPLICARE TUTTO IL SOTTOALBERO DEL MANUALE SELEZIONATO
+/*
             if ($manual->children()->get()->count() > 0){ // >1 perchè ho appena creato il duplicato ??? forse è >0
                 foreach ($manual->children as $child)
-                    dd($manual->children()->get());
+                    $newChild = $child;
+
+                    $newChild->appendTo($newManual)->save(); // così sposto i figli di $newManual => sbagliato, li devo duplicare
+//                    dd($manual->children()->get());
 //                    return $this->duplicate($child);
             } else {
                 dd('no figli');
             }
+*/
         }
 
         return redirect()->back();

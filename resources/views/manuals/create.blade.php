@@ -34,11 +34,16 @@
                     <input type="text" class="form-control" name="tags">
                 </div>
                 <div class="form-group">
-                    <label for="parent_id">Ramo padre - parent_id</label>
+                    <label for="parent_id">Ramo padre (parent_id)</label>
                     <select class="form-control" name="parent_id">
-                        <option value="" selected>---</option>
+                        <option value="" selected>--NESSUNO--</option>
                         @foreach($manuals as $manual)
-                            <option value="{{ $manual->id }}">{{ $manual->title }}</option>
+                            <option value="{{ $manual->id }}">
+                                @for($i=0; $i<$manual->lvl; $i++)
+                                    <span>-</span>
+                                @endfor
+                                {{ $manual->title }}
+                            </option>
                         @endforeach
                     </select>
                 </div>

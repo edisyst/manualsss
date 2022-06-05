@@ -46,6 +46,23 @@
                         <input type="text" class="form-control" name="tags" value="{{$manual->tags}}">
                     </div>
                     <div class="form-group">
+                        <label for="parent_id">Ramo padre (parent_id)</label>
+                        <select class="form-control" name="parent_id">
+                            <option value="" selected>--NESSUNO--</option>
+                            @foreach($manuals as $item)
+                                <option value="{{ $item->id }}"
+                                    {{ ($manual->parent_id == $item->id) ? 'selected' : '' }}
+                                    {{ ($manual->id == $item->id) ? 'disabled' : '' }}
+                                >
+                                    @for($i=0; $i<$item->lvl; $i++)
+                                        <span>-</span>
+                                    @endfor
+                                    {{ $item->title }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="content">Content</label>
                         <textarea class="form-control" name="content" id="content_editor" rows="10">{{ $manual->content }}</textarea>
                     </div>

@@ -6,7 +6,7 @@ php artisan key:generate
 
 CREATE DATABASE manualsss CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-php artisan migrate
+php artisan migrate:fresh --seed
 php artisan serve
 ```
 

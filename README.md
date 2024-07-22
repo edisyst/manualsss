@@ -1,13 +1,26 @@
-### Progetto CRUD generico con Laravel Jetstream
+# Install
+```bash
+composer install
+cp .env.example .env
+php artisan key:generate
+
+CREATE DATABASE manualsss CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+php artisan migrate:fresh --seed
+php artisan serve
 ```
+C'è una rotta per creare alcuni elementi inalberati creati usando i metodi del package
+
+
+### Progetto CRUD generico con Laravel Jetstream
+```bash
 laravel new manuali
 cd manuali
 composer require laravel/jetstream
 php artisan jetstream:install livewire --teams
 npm install && npm run dev
 ```
-CREO IL DB E LO SCRIVO IN .env
-```CREATE DATABASE manuali CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;```
+
 ```
 php artisan migrate
 php artisan vendor:publish --tag=jetstream-views

@@ -22,7 +22,7 @@
 @section('content_body')
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Nome progetto o nome versione</h6>
+            <h6 class="mb-2 font-weight-bold text-primary">Nome progetto o nome versione</h6>
             <a href="{{ route('manuals.create') }}" class="btn btn-success">Aggiungi nuovo manuale</a>
         </div>
         <div class="card-body">

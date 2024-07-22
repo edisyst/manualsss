@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
             ChapterSeeder::class,
         ]);
 
-        // \App\Models\User::factory(10)->create();
-        $this->call(ManualsTableSeeder::class);
+//        $this->call(ManualsTableSeeder::class);
     }
 }

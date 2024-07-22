@@ -17,7 +17,7 @@ class ManualFactory extends Factory
         return [
             'title' => $title,
             'slug' => Str::slug($title),
-            'content' => $this->faker->realText(500),
+            'content' => $this->faker->realText(1000),
             'parent_id' => null,
         ];
     }

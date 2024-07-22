@@ -39,6 +39,7 @@ Route::get('/prova', function () {
         'title'   => "PADRE SALVATORE",
      ]);
     $second->prependTo($first)->save();
+
     $third = \App\Models\Manual::make([
         'title'   => "ZIO GIANNI",
      ]);
@@ -79,8 +80,7 @@ Route::get('/prova', function () {
         'title'   => "NONNO secondo",
     ]);
     $first->makeRoot()->save();
-
-});
+})->name('prova');
 
 
 Route::get('/', function () {

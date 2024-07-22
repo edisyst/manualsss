@@ -9,7 +9,7 @@ CREATE DATABASE manualsss CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 php artisan migrate:fresh --seed
 php artisan serve
 ```
-
+C'è una rotta per creare alcuni elementi inalberati creati usando i metodi del package
 
 
 ### Progetto CRUD generico con Laravel Jetstream

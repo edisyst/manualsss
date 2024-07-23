@@ -45,78 +45,7 @@
 @section('content_body')
 
 <div class="container">
-
-    <ul class="sortable-ul sTree bgC4" id="sTree2">
-        <li class="sortable-li bgC4" id="item_a">
-            <div class="sortable-div">Item a</div>
-        </li>
-        <li class="sortable-li bgC4" id="item_b">
-            <div class="sortable-div">Item b</div>
-        </li>
-        <li class="sortable-li bgC4 sortableListsClose" id="item_c">
-            <div class="sortable-div">
-                <span class="sortableListsOpener"> </span>Item c
-            </div>
-            <ul class="sortable-ul ">
-                <li class="sortable-li bgC4" id="item_1">
-                    <div class="sortable-div">Item C 1</div>
-                </li>
-                <li class="sortable-li bgC4" id="item_2">
-                    <div class="sortable-div">Item C 2</div>
-                </li>
-                <li class="sortable-li bgC4" id="item_3">
-                    <div class="sortable-div">Item C 3</div>
-                </li>
-                <li class="sortable-li bgC4" id="item_4">
-                    <div class="sortable-div">Item C 4</div>
-                </li>
-                <li class="sortable-li bgC4" id="item_5">
-                    <div class="sortable-div">Item C 5</div>
-                </li>
-            </ul>
-        </li>
-        <li class="sortable-li bgC4 sortableListsClose" id="item_d">
-            <div class="sortable-div"><span class="sortableListsOpener"> </span>Item d</div>
-            <ul class="sortable-ul ">
-                <li class="sortable-li bgC4" id="item_1">
-                    <div class="sortable-div">Item D 1</div>
-                </li>
-                <li class="sortable-li bgC4" id="item_2">
-                    <div class="sortable-div">Item D 2</div>
-                </li>
-                <li class="sortable-li bgC4" id="item_3">
-                    <div class="sortable-div">Item D 3</div>
-                </li>
-                <li class="sortable-li bgC4" id="item_4">
-                    <div class="sortable-div">Item D 4</div>
-                </li>
-                <li class="sortable-li bgC4" id="item_5">
-                    <div class="sortable-div">Item D 5</div>
-                </li>
-            </ul>
-        </li>
-        <li class="sortable-li bgC4 sortableListsClose" id="item_e">
-            <div class="sortable-div"><span class="sortableListsOpener"> </span>Item e</div>
-            <ul class="sortable-ul ">
-                <li class="sortable-li bgC4" id="item_1">
-                    <div class="sortable-div">Item E 1</div>
-                </li>
-                <li class="sortable-li bgC4" id="item_2">
-                    <div class="sortable-div">Item E 2</div>
-                </li>
-                <li class="sortable-li bgC4" id="item_3">
-                    <div class="sortable-div">Item E 3</div>
-                </li>
-                <li class="sortable-li bgC4" id="item_4">
-                    <div class="sortable-div">Item E 4</div>
-                </li>
-                <li class="sortable-li bgC4" id="item_5">
-                    <div class="sortable-div">Item E 5</div>
-                </li>
-            </ul>
-        </li>
-    </ul>
-
+    @include('manuals.partials.tree', ['manuals' => $manuals])
 </div>
 
 

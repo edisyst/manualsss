@@ -54,63 +54,64 @@
             <div class="sortable-div">Item b</div>
         </li>
         <li class="sortable-li bgC4 sortableListsClose" id="item_c">
-            <div class="sortable-div">
-                <span class="sortableListsOpener"> </span>Item c</div>
+            <div class="sortable-div"><span class="sortableListsOpener"> </span>Item c</div>
             <ul class="sortable-ul ">
                 <li class="sortable-li bgC4" id="item_1">
-                    <div class="sortable-div">Item 1</div>
+                    <div class="sortable-div">Item c 1</div>
                 </li>
                 <li class="sortable-li bgC4" id="item_2">
-                    <div class="sortable-div">Item 2</div>
+                    <div class="sortable-div"><span class="sortableListsOpener"> </span>Item c 2</div>
+                    <ul class="sortable-ul ">
+                        <li class="sortable-li bgC4" id="item_21">
+                            <div class="sortable-div">Item c 2 1</div>
+                        </li>
+                        <li class="sortable-li bgC4" id="item_22">
+                            <div class="sortable-div">Item c 2 2</div>
+                        </li>
+                    </ul>
                 </li>
                 <li class="sortable-li bgC4" id="item_3">
-                    <div class="sortable-div">Item 3</div>
-                </li>
-                <li class="sortable-li bgC4" id="item_4">
-                    <div class="sortable-div">Item 4</div>
-                </li>
-                <li class="sortable-li bgC4" id="item_5">
-                    <div class="sortable-div">Item 5</div>
+                    <div class="sortable-div">Item c 3</div>
                 </li>
             </ul>
         </li>
         <li class="sortable-li bgC4 sortableListsClose" id="item_d">
-            <div class="sortable-div"><span class="sortableListsOpener"> </span>Item c</div>
+            <div class="sortable-div"><span class="sortableListsOpener"> </span>Item d</div>
             <ul class="sortable-ul ">
                 <li class="sortable-li bgC4" id="item_1">
-                    <div class="sortable-div">Item 1</div>
+                    <div class="sortable-div">Item d 1</div>
                 </li>
                 <li class="sortable-li bgC4" id="item_2">
-                    <div class="sortable-div">Item 2</div>
+                    <div class="sortable-div">Item d 2</div>
                 </li>
                 <li class="sortable-li bgC4" id="item_3">
-                    <div class="sortable-div">Item 3</div>
+                    <div class="sortable-div">Item d 3</div>
                 </li>
                 <li class="sortable-li bgC4" id="item_4">
-                    <div class="sortable-div">Item 4</div>
+                    <div class="sortable-div">Item d 4</div>
                 </li>
                 <li class="sortable-li bgC4" id="item_5">
-                    <div class="sortable-div">Item 5</div>
+                    <div class="sortable-div">Item d 5</div>
                 </li>
             </ul>
         </li>
         <li class="sortable-li bgC4 sortableListsClose" id="item_e">
-            <div class="sortable-div"><span class="sortableListsOpener"> </span>Item c</div>
+            <div class="sortable-div"><span class="sortableListsOpener"> </span>Item e</div>
             <ul class="sortable-ul ">
                 <li class="sortable-li bgC4" id="item_1">
-                    <div class="sortable-div">Item 1</div>
+                    <div class="sortable-div">Item e 1</div>
                 </li>
                 <li class="sortable-li bgC4" id="item_2">
-                    <div class="sortable-div">Item 2</div>
+                    <div class="sortable-div">Item e 2</div>
                 </li>
                 <li class="sortable-li bgC4" id="item_3">
-                    <div class="sortable-div">Item 3</div>
+                    <div class="sortable-div">Item e 3</div>
                 </li>
                 <li class="sortable-li bgC4" id="item_4">
-                    <div class="sortable-div">Item 4</div>
+                    <div class="sortable-div">Item e 4</div>
                 </li>
                 <li class="sortable-li bgC4" id="item_5">
-                    <div class="sortable-div">Item 5</div>
+                    <div class="sortable-div">Item e 5</div>
                 </li>
             </ul>
         </li>

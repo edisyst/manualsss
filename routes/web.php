@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ManualController;
 use App\Http\Controllers\ChapterController;
+use App\Models\Manual;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,7 @@ Route::resource('/manuals', ManualController::class);
 Route::get('manuals/{manual}/duplicate', [ManualController::class, 'duplicate'])
     ->name('manuals.duplicate');
 
-Route::view('/riordina', 'manuals.reorder')->name('manuals.reorder');
+Route::view('/riordina', 'manuals.reorder', ['manuals' => Manual::where('parent_id', NULL)->get()])->name('manuals.reorder');
 Route::view('/riordina-statico', 'manuals.reorder-static')->name('manuals.reorder-static');
 
 

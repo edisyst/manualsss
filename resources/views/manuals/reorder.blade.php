@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 
-@section('title', 'Riordinamento dei manuali')
+@section('title', 'Riordinamento DINAMICO dei manuali')
 
 @section('stylesheets')
     <style type="text/css">
@@ -39,14 +39,10 @@
 @section('content_head')
     <h1 class="h3 mb-2 text-gray-800">Riordinamento dei Manuali</h1>
     <p class="mb-4 text-gray-800">Trascina i manuali per modificarne l'alberatura.</p>
-    <p class="mb-4 text-gray-800">Forse posso usare un Observer sul model Manual.</p>
 @endsection
 
 
 @section('content_body')
-
-
-
 
 <div class="container">
 
@@ -186,13 +182,9 @@
             $('#sTree2').sortableLists(options);
             // $('#selector').sortableLists(options);
 
-
-
             console.log($('#sTree2').sortableListsToArray());
             console.log($('#sTree2').sortableListsToHierarchy());
             console.log($('#sTree2').sortableListsToString());
         });
     </script>
-
-
 @endsection

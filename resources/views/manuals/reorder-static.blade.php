@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 
-@section('title', 'Riordinamento dei manuali')
+@section('title', 'Riordinamento STATICO dei manuali')
 
 @section('stylesheets')
     <style type="text/css">
@@ -36,7 +36,6 @@
     </style>
 @stop
 
-
 @section('content_head')
     <h1 class="h3 mb-2 text-gray-800">Riordinamento dei Manuali</h1>
     <p class="mb-4">Trascina i manuali per modificarne l'alberatura.</p>
@@ -55,7 +54,8 @@
             <div class="sortable-div">Item b</div>
         </li>
         <li class="sortable-li bgC4 sortableListsClose" id="item_c">
-            <div class="sortable-div"><span class="sortableListsOpener"> </span>Item c</div>
+            <div class="sortable-div">
+                <span class="sortableListsOpener"> </span>Item c</div>
             <ul class="sortable-ul ">
                 <li class="sortable-li bgC4" id="item_1">
                     <div class="sortable-div">Item 1</div>
@@ -178,6 +178,7 @@
                 ignoreClass: 'clickable'
             };
             $('#sTree2').sortableLists(options);
+
 
             console.log($('#sTree2').sortableListsToArray());
             console.log($('#sTree2').sortableListsToHierarchy());

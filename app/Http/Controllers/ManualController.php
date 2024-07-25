@@ -94,5 +94,44 @@ class ManualController extends Controller
         return redirect()->back();
     }
 
+    /* Redirect reorder view     */
+    public function reorder()
+    {
+        $manuals = Manual::with('children')->whereNull('parent_id')->get();
+//        $manuals = Manual::defaultOrder()->get()->toTree();
+        return view('manuals.reorder', compact('manuals'));
+    }
+    /** Update the order of manuals .     */
+    public function updateOrder(Request $request)
+    {
+        $manualsOrder = json_decode($request->input('manuals_order'), true);
+        $this->updateManualsOrder($manualsOrder);
 
+        return response()->json(['status' => 'success']);
+    }
+    /** Update the order of manuals recursively.     */
+    protected function updateManualsOrder(array $manualsOrder, $parentId = null)
+    {
+        foreach ($manualsOrder as $index => $manualData) {
+            $manual = Manual::find($manualData['id']);            
+            /*
+            if ($parentId) {
+                $parentManual = Manual::find($parentId);
+                $manual->prependToNode($parentManual)->save();
+            } else {
+                $manual->makeRoot()->save();
+            }
+
+            if (isset($manualData['children'])) {
+                $this->updateManualsOrder($manualData['children'], $manual->id);
+            }
+            */
+            $manual->parent_id = $parentId;
+            $manual->save();
+
+            if (isset($manualData['children'])) {
+                $this->updateManualsOrder($manualData['children'], $manual->id);
+            }
+        }
+    }
 }

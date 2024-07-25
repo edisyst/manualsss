@@ -23,11 +23,13 @@ use App\Models\Manual;
  * MANUALS *
  ***********/
 Route::resource('/manuals', ManualController::class);
-Route::get('manuals/{manual}/duplicate', [ManualController::class, 'duplicate'])
-    ->name('manuals.duplicate');
+Route::get('manuals/{manual}/duplicate', [ManualController::class, 'duplicate'])->name('manuals.duplicate');
 
 Route::view('/riordina', 'manuals.reorder', ['manuals' => Manual::where('parent_id', NULL)->get()])->name('manuals.reorder');
 Route::view('/riordina-statico', 'manuals.reorder-static')->name('manuals.reorder-static');
+
+Route::get('manuals/reorder', [ManualController::class, 'reorder'])->name('manuals.reorder');
+Route::post('manuals/reorder', [ManualController::class, 'updateOrder'])->name('manuals.updateOrder');
 
 
 Route::get('/prova', function () {

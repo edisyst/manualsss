@@ -55,9 +55,8 @@
     </div>
 
 
-
-    <div class="scrollUp dN"></div>
-    <div class="scrollDown dN"></div>
+{{--    <div class="scrollUp dN"></div>   --}}
+{{--    <div class="scrollDown dN"></div> --}}
 @endsection
 
 
@@ -79,7 +78,6 @@
                     var movedItem = cEl.attr('id').replace('manual_', '');
                     var newParentItem = cEl.closest('ul').closest('li').attr('id') ? cEl.closest('ul').closest('li').attr('id').replace('manual_', '') : null;
                     updateOrder(movedItem, newParentItem);
-                    // updateOrder();
                 },
                 isAllowed: function( cEl, hint, target ) {
                     if( target.data('module') === 'c' && cEl.data('module') !== 'c' ) {
@@ -108,16 +106,15 @@
                 ignoreClass: 'clickable'
             };
             $('#sTree2').sortableLists(options);
-            // $('#selector').sortableLists(options);
 
-            function updateOrder() {
+            function updateOrder(movedItem, newParentItem) {
                 var treeData = $('#sTree2').sortableListsToHierarchy();
                 $.ajax({
                     url: '{{ route('manuals.updateOrder') }}',
                     method: 'POST',
                     data: {
-                        moved_item: movedItem,
-                        new_parent_item: newParentItem,
+                        moved_item: movedItem.replace('item_', ''),
+                        new_parent_item: newParentItem.replace('item_', ''),
                         _token: '{{ csrf_token() }}'
                     },
                     success: function(response) {
@@ -128,10 +125,6 @@
                     }
                 });
             }
-
-            console.log($('#sTree2').sortableListsToArray());
-            console.log($('#sTree2').sortableListsToHierarchy());
-            console.log($('#sTree2').sortableListsToString());
         });
     </script>
 @endsection

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 
-@section('title', 'Riordinamento DINAMICO dei manuali')
+@section('title', 'Riordinamento DINAMICO')
 
 @section('stylesheets')
     <style type="text/css">
@@ -36,6 +36,7 @@
     </style>
 @stop
 
+
 @section('content_head')
     <h1 class="h3 mb-2 text-gray-800">Riordinamento dei Manuali</h1>
     <p class="mb-4 text-gray-800">Trascina i manuali per modificarne l'alberatura.</p>
@@ -43,16 +44,20 @@
 
 
 @section('content_body')
+    <div class="container">
+        <form action="{{ route('manuals.updateOrder') }}" method="POST">
+            @csrf
 
-<div class="container">
-    @include('manuals.partials.tree', ['manuals' => $manuals])
-</div>
+            <button type="submit" class="btn btn-success">Salva il nuovo ordine</button>
+
+            @include('manuals.partials.tree', ['manuals' => $manuals])
+        </form>
+    </div>
 
 
 
     <div class="scrollUp dN"></div>
     <div class="scrollDown dN"></div>
-
 @endsection
 
 
@@ -66,27 +71,21 @@
             var options = {
                 placeholderCss: {'background-color': '#000000'},
                 hintCss: {'background-color':'#bbf'},
-                onChange: function( cEl )
-                {
+                onChange: function( cEl ) {
                     console.log( 'onChange' );
                 },
-                complete: function( cEl )
-                {
+                complete: function( cEl ) {
                     console.log( 'complete' );
+                    var movedItem = cEl.attr('id').replace('manual_', '');
+                    var newParentItem = cEl.closest('ul').closest('li').attr('id') ? cEl.closest('ul').closest('li').attr('id').replace('manual_', '') : null;
+                    updateOrder(movedItem, newParentItem);
+                    // updateOrder();
                 },
-                isAllowed: function( cEl, hint, target )
-                {
-                    // Be carefull if you test some ul/ol elements here.
-                    // Sometimes ul/ols are dynamically generated and so they have not some attributes as natural ul/ols.
-                    // Be careful also if the hint is not visible. It has only display none so it is at the previouse
-                    // place where it was before(excluding first moves before showing).
-                    if( target.data('module') === 'c' && cEl.data('module') !== 'c' )
-                    {
+                isAllowed: function( cEl, hint, target ) {
+                    if( target.data('module') === 'c' && cEl.data('module') !== 'c' ) {
                         hint.css('background-color', '#ff9999');
                         return false;
-                    }
-                    else
-                    {
+                    } else {
                         hint.css('background-color', '#ffffff');
                         return true;
                     }
@@ -110,6 +109,25 @@
             };
             $('#sTree2').sortableLists(options);
             // $('#selector').sortableLists(options);
+
+            function updateOrder() {
+                var treeData = $('#sTree2').sortableListsToHierarchy();
+                $.ajax({
+                    url: '{{ route('manuals.updateOrder') }}',
+                    method: 'POST',
+                    data: {
+                        moved_item: movedItem,
+                        new_parent_item: newParentItem,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        console.log('Order updated successfully');
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error updating order:', error);
+                    }
+                });
+            }
 
             console.log($('#sTree2').sortableListsToArray());
             console.log($('#sTree2').sortableListsToHierarchy());

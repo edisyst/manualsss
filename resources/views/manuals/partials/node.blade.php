@@ -1,4 +1,8 @@
-<li class="sortable-li bgC4 @if($manual->children->isNotEmpty()) sortableListsClose @endif" id="item_{{ $manual->id }}">
+<li
+    class="sortable-li bgC4 @if($manual->children->isNotEmpty()) sortableListsClose @endif"
+    id="item_{{ $manual->id }}"
+    name="item_{{ $manual->id }}"
+>
     <div class="sortable-div">
         @if($manual->children->isNotEmpty())
             <span class="sortableListsOpener"> </span>

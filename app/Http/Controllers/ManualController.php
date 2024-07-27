@@ -94,5 +94,27 @@ class ManualController extends Controller
         return redirect()->back();
     }
 
+    public function reorder()
+    {
+        $manuals = Manual::defaultOrder()->get()->toTree();
+        return view('manuals.reorder', compact('manuals'));
+    }
+
+    public function updateOrder(Request $request)
+    {
+        $movedItemId = $request->input('moved_item');
+        $newParentItemId = $request->input('new_parent_item');
+
+        $movedItem = Manual::find($movedItemId);
+
+        if ($newParentItemId) {
+            $newParentItem = Manual::find($newParentItemId);
+            $movedItem->prependTo($newParentItem)->save();
+        } else {
+            $movedItem->makeRoot()->save();
+        }
+
+        return response()->json(['status' => 'success']);
+    }
 
 }

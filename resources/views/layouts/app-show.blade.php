@@ -31,7 +31,7 @@
         <!-- Top navigation-->
         <nav class="navbar navbar-expand-lg navbar-light border-bottom mb-2" style="background-color: #F9E5F0">
             <div class="container-fluid">
-                <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
+                <button class="btn btn-primary" id="sidebarToggle">Visualizza Elenco</button>
                 <h1>@yield('title')</h1>
             </div>
         </nav>

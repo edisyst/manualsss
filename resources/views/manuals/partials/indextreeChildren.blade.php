@@ -5,6 +5,9 @@
             <span class="treeview-colorful-element">
                 {{ $child->title }}
             </span>
+            <a href="{{ route('manuals.show', $child->id) }}" class="btn btn-info">
+                <i class="fas fa-eye"></i>
+            </a>
         @else
             <a class="treeview-colorful-items-header">
                 <i class="fas fa-plus-circle"></i>

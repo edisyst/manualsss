@@ -2,7 +2,7 @@
 
 
 @section('title')
-    {{ $manual->title }}
+    MANUALE:{{ $manual->title }} - ID:{{ $manual->id }}
 @endsection
 
 
